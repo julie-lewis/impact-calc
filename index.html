@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Impact Calc</title>
+
+    <div class="py-5 blue donate-row">
+      <div class="container">
+      	<div class="row p-0 d-flex">
+      		<div class="col-sm-12 pl-0 col-md-3 d-flex flex-column align-items-stretch">
+      			<h1 class="display-3">Donate</h1>
+            <h2 class="display-3 font-italic">Koha mai</h2>
+            <p class="lead">Your donation provides care and support for patients and their families in Rotorua.</p>
+
+            <button type="button" class="btn btn-cta" data-toggle="modal" data-target="#donateModal">Donate Now</button>
+
+          </div>
+      		<div class="col-sm-12 col-md-6 px-5 py-0 text-center">
+            <p class="display-5">Use our Impact Calculator to see how you can make a difference.</p>
+            <div class="d-flex flex-column impact-form">
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <input class="form-control form-control-lg input-group-text" placeholder="Enter Amount" type="number" min="0" id="myRange">
+              </div>
+
+              <p class="p-2 display-5">Your donation can ...<br><span id="message"></span></p>
+
+
+
+            </div>
+
+            <!-- Modal -->
+            <div id="donateModal" class="modal fade" role="dialog">
+              <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title text-dark">Make a one-off donation to Rotorua Community Hospice</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <script data-width="" src="https://rotoruahospice.infoodle.com//js/embed_form.js" data-form="193b5b83-1b75-4500-9b10-b6e1d31a0f8d"></script>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+      		</div>
+
+          <div class="col-sm-12 col-md-3 text-center">
+            <a href="/donate/#more">
+              <div class="testimonial_content-img circle-yellow m-2" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url({{ the_post_thumbnail_url() }}); background-position: center center; background-size: cover; transform: rotate(7deg);">
+                <h2 class="text-white display-4 p-5">More ways to donate</h2>
+              </div>
+            </a>
+          </div>
+      	</div>
+      </div>
+    </div>
+
+
+    {{-- Impact Calculator Functionality  --}}
+    <script type="text/javascript">
+      // Get form input
+      var input = document.getElementById("myRange");
+
+      // Get output span
+      // var output = document.getElementsByClassName("amountentry");
+      // var outputValue = output.value;
+
+      // Get message span
+      var message = document.getElementById("message");
+
+      // Update the message (each time you change the input value)
+      input.oninput = function() {
+        var inputValue = input.value;
+        if (inputValue < 3) {
+          message.innerHTML = "...unfortunately a donation of this size would cost more to process than the total donation value! (try $3 or more)";
+        } else if (inputValue >= 3 && inputValue < 4 ) {
+          message.innerHTML = "pay for our emergency call line for a day";
+        } else if (inputValue >= 4 && inputValue < 5 ) {
+          message.innerHTML = "buy 5 basic wound dressing packs";
+        } else if (inputValue >= 5 && inputValue < 6 ) {
+          message.innerHTML = "buy antiseptic hand rub used by nurses whilst caring for patients";
+        } else if (inputValue >= 6 && inputValue < 10 ) {
+          message.innerHTML = "buy a packet of 100 safety gloves";
+        } else if (inputValue >= 10 && inputValue < 15 ) {
+          message.innerHTML = "buy a unique shower cap for a patient that can self shampoo and condition";
+        } else if (inputValue >= 15 && inputValue < 17 ) {
+          message.innerHTML = "buy 8 crepe bandages";
+        } else if (inputValue >= 17 && inputValue < 20 ) {
+          message.innerHTML = "buy 10 crepe bandages";
+        } else if (inputValue >= 20 && inputValue < 25 ) {
+          message.innerHTML = "buy a box of 100 syringes to dispense medicine";
+        } else if (inputValue >= 25 && inputValue < 30 ) {
+          message.innerHTML = "pay for our emergency call line for a month";
+        } else if (inputValue >= 30 && inputValue < 40 ) {
+          message.innerHTML = "pay for a nurse to visit a patient at their own home";
+        } else if (inputValue >= 40 && inputValue < 45 ) {
+          message.innerHTML = "buy four unique shower cap for a patient that can self shampoo and condition";
+        } else if (inputValue >= 45 && inputValue < 50 ) {
+          message.innerHTML = "buy a stethoscope to check heart rate";
+        } else if (inputValue >= 50 && inputValue < 60 ) {
+          message.innerHTML = "pay for two personal security alarms for our nurses for a month";
+        } else if (inputValue >= 60 && inputValue < 70 ) {
+          message.innerHTML = "provide consumables such as gloves, syringes and bandages for a patient";
+        } else if (inputValue >= 70 && inputValue < 80 ) {
+          message.innerHTML = "buy a sphygmomanometer to check blood pressure";
+        } else if (inputValue >= 80 && inputValue < 90 ) {
+          message.innerHTML = "provide a bereavement counselling session for whānau or family members of patients";
+        } else if (inputValue >= 90 && inputValue < 100 ) {
+          message.innerHTML = "buy three respirator masks to help patients get more oxygen";
+        } else if (inputValue >= 100 && inputValue < 125 ) {
+          message.innerHTML = "pay for a nurse's syringe driver training allowing them to give pain relief via a syringe over a 24 hour period";
+        } else if (inputValue >= 125 && inputValue < 150 ) {
+          message.innerHTML = "provide consumables such as gloves, syringes and bandages for 2 patients";
+        } else if (inputValue >= 150 && inputValue < 175 ) {
+          message.innerHTML = "pay for a nurse to visit 4 - 6 patients in their own homes";
+        } else if (inputValue >= 175 && inputValue < 200 ) {
+          message.innerHTML = "provide one night of respite care in a rest home for a patient";
+        } else if (inputValue >= 200 && inputValue < 250 ) {
+          message.innerHTML = "buy an IV pole to help administer pain relief";
+        } else if (inputValue >= 250 && inputValue < 300 ) {
+          message.innerHTML = "provide a patient and their whānau with social worker support during their time with Hospice";
+        } else if (inputValue >= 300 && inputValue < 350 ) {
+          message.innerHTML = "pay for our emergency call line for a year";
+        } else if (inputValue >= 350 && inputValue < 400 ) {
+          message.innerHTML = "provide two nights of respite care in a rest home for a patient";
+        } else if (inputValue >= 400 && inputValue < 500 ) {
+          message.innerHTML = "buy three finger pulse oximeter to easily take a patients pulse and their oxygen levels";
+        } else if (inputValue >= 500 && inputValue < 600 ) {
+          message.innerHTML = "pay for a nurse to visit 15 - 20 patients in their own homes";
+        } else if (inputValue >= 600 && inputValue < 700 ) {
+          message.innerHTML = "pay for two personal security alarms for our nurses for a year";
+        } else if (inputValue >= 700 && inputValue < 800 ) {
+          message.innerHTML = "buy a wheelchair which patients can use on loan throughout the year";
+        } else if (inputValue >= 800 && inputValue < 900 ) {
+          message.innerHTML = "provide 10 bereavement counselling sessions for whānau or family members of patients";
+        } else if (inputValue >= 900 && inputValue < 1000 ) {
+          message.innerHTML = "buy a pressure mattress for patients to use on loan in their own homes";
+        } else if (inputValue >= 1000 && inputValue < 1500 ) {
+          message.innerHTML = "buy an oxygen concentrator to help patients breathe better";
+        } else if (inputValue >= 1500 && inputValue < 2000 ) {
+          message.innerHTML = "pay for a doctor specialising in palliative care for a day";
+        } else if (inputValue >= 2000 && inputValue < 2500 ) {
+          message.innerHTML = "allow two nurses to attend a palliative care conference";
+        } else if (inputValue >= 2500 && inputValue < 3000 ) {
+          message.innerHTML = "buy a patient specific bed with fold down side rails and a moulded foam mattress";
+        } else if (inputValue >= 3000 && inputValue < 3500 ) {
+          message.innerHTML = "provide 15 patients with a trained Health Care Assistant to do personal cares during their time with Hospice";
+        } else if (inputValue >= 3500 && inputValue < 4000 ) {
+          message.innerHTML = "support a patient for their entire time in Hospice care";
+        } else if (inputValue >= 4000 && inputValue < 4500 ) {
+          message.innerHTML = "pay for the safe disposal of needles, used for administering medications that reduce pain and nausea, for a year";
+        } else if (inputValue >= 4500 && inputValue < 5000 ) {
+          message.innerHTML = "buy 5 pressure mattress for patients to use on loan in their own homes";
+        } else if (inputValue >= 5000 && inputValue < 6000 ) {
+          message.innerHTML = "provide two syringe drivers enabling patients access to pain-free medication";
+        } else if (inputValue >= 6000 && inputValue < 7000 ) {
+          message.innerHTML = "buy petrol for 7 vehicles to make over 5500 visits to patient's homes in half a year";
+        } else if (inputValue >= 7000 && inputValue < 8000 ) {
+          message.innerHTML = "buy ten wheelchairs which patients can use on loan throughout the year";
+        } else if (inputValue >= 8000 && inputValue < 9000 ) {
+          message.innerHTML = "provide 30 patients and their whānau with social worker support during their time with Hospice";
+        } else if (inputValue >= 9000 && inputValue < 10000 ) {
+          message.innerHTML = "pay for the safe disposal of needles, used for administering medications that reduce pain and nausea, for two years";
+        } else if (inputValue >= 10000 && inputValue < 12500 ) {
+          message.innerHTML = "provide four syringe drivers enabling patients access to pain-free medication";
+        } else if (inputValue >= 12500 && inputValue < 15000 ) {
+          message.innerHTML = "buy petrol for 7 vehicles to make over 11,000 visits to patient's homes every year";
+        } else if (inputValue >= 15000 && inputValue < 20000 ) {
+          message.innerHTML = "repair and maintain all our clinical equipment for the year";
+        } else if (inputValue >= 20000 && inputValue < 25000 ) {
+          message.innerHTML = "buy four patient specific beds with fold down side rails and a moulded foam mattress";
+        } else if (inputValue >= 25000 && inputValue < 30000 ) {
+          message.innerHTML = "provide our patient database for the year, keeping patients details safe and accessible";
+        } else if (inputValue >= 30000 && inputValue < 40000 ) {
+          message.innerHTML = "repair and maintain all our clinical equipment for two years";
+        } else if (inputValue >= 40000 && inputValue < 50000 ) {
+          message.innerHTML = "pay for a Health Care Assistant for a year visiting over 200 patients numerous times";
+        } else if (inputValue >= 50000 && inputValue < 75000 ) {
+          message.innerHTML = "pay for a nurse for a year to make over 1000 visits to care for patients in their own homes";
+        } else if (inputValue >= 75000 && inputValue < 100000 ) {
+          message.innerHTML = "support over 20 patients for their entire time in Hospice care";
+        } else if (inputValue >= 75000 && inputValue < 100000 ) {
+          message.innerHTML = "support over 25 patients for their entire time in Hospice care";
+        } else {
+          message.innerHTML = "...Wow, a donation of that size would be like winning the lottery! Get in touch with our team to find out more - 07 343 6591";
+        }
+        // console.log(this.value);
+        // output.value = this.value;
+        // console.log(outputValue);
+        // http://jsfiddle.net/NdpuM/1/
+      }
+    </script>
+
+  </body>
+</html>
